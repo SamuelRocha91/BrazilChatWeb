@@ -3,6 +3,9 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Room from "./pages/Room"
+import socketIO from 'socket.io-client';
+
+const socket = socketIO.connect('http://localhost:3000');
 
 function App() {
   return (
@@ -10,8 +13,12 @@ function App() {
        <Switch>
         <Route exact path="/" component={ Home } />
         <Route path="/login" component={ Login } />
-        <Route exact path="/dashboard" component={ Dashboard }   />
-        <Route path="/dashboard/:room" component={ Room }  />
+        <Route exact path="/dashboard">
+          <Dashboard socket={socket}/>
+        </Route>
+        <Route path="/dashboard/:room">
+          <Room socket={socket}/>
+        </Route>
       </Switch>
     </>
   )

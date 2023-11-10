@@ -17,11 +17,14 @@ const socketIO = require('socket.io')(http, {
 
 //Add this before the app.get() block
 socketIO.on('connection', (socket) => {
-    console.log(`⚡: ${socket.id} user just connected!`);
+    socket.on('joinRoom', ({  room }) => {
+        socket.join(room);
+    
+    });
 
     socket.on('message', (data) => {
-        console.log(data);
-        socketIO.emit('messageResponse', data);
+        const {text, room} = data
+        socketIO.to(room).emit('messageResponse', text);
       });
     
     socket.on('disconnect', () => {

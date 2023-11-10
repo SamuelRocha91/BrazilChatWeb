@@ -7,5 +7,6 @@ app.get('/', (_request, response) => {
 });
 
 app.use(express.json());
+app.use(express.static('public'))
 
 module.exports = app;

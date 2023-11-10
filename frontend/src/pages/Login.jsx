@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import './login.css'
 
 function Login() {
     const [state, setState] = useState({ email: '', password: '', isDisabled: true});
@@ -21,35 +22,35 @@ function Login() {
     return (
       <>
         <div className="divInput">
-          <label>
-            <input
-              name="email"
-              type="text"
-              placeholder="Escreva seu email"
-              value={ state.email }
-              onChange={ handleChange }
-            />
-          </label>
-
-          <label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Escreva sua senha"
-              value = { state.password }
-              onChange={ handleChange }
-            />
-          </label>
-
-          <button
-            className="buttonLogin"
-            data-testid="btn-settings"
-            type="button"
-            disabled = { state.isDisabled }
-            onClick={ () => navigate.push('/dashboard') }
-          >
-            Login
-          </button>
+          <div id='div-login'>
+            <label>
+              <input
+                name="email"
+                type="text"
+                placeholder="Escreva seu email"
+                value={ state.email }
+                onChange={ handleChange }
+              />
+            </label>
+            <label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Escreva sua senha"
+                value = { state.password }
+                onChange={ handleChange }
+              />
+            </label>
+            <button
+              className="buttonLogin"
+              data-testid="btn-settings"
+              type="button"
+              disabled = { state.isDisabled }
+              onClick={ () => navigate.push('/dashboard') }
+            >
+              Login
+            </button>
+          </div>
         </div>
       </>
     )

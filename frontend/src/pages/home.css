@@ -1,0 +1,84 @@
+header {
+    background-color: #075B29;
+    height: 90px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+#titles {
+    display: flex;
+    gap: 30px;
+
+}
+
+header div button {
+    background-color: #075B29;
+    color: white;
+    border: 0px;
+}
+
+#page-links {
+    display: flex;
+    gap: 30px;
+
+}
+
+#page-links div {
+    display: flex;
+}
+
+header img {
+    padding: 10px;
+    height: 36px;
+    width: 36px;
+    align-content: center;
+}
+
+select {
+    height: 36px;
+    align-content: center;
+    margin: 10px;
+}
+
+main {
+    height: 890px;
+    background-color: #075B29;
+    color: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+}
+
+#text-button {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0 100px;
+    align-items: flex-start;
+    height: 400px;
+}
+#mountain {
+    border: 1px solid white;
+}
+
+#text-button h1 {
+    width: 80%;
+    font-size: 50px;
+    gap: 10px;
+}
+
+#text-button button {
+    display: flex;
+    padding: 10px;
+    width: 200px;
+    align-content: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+main #mountain {
+    width: 38%;
+}

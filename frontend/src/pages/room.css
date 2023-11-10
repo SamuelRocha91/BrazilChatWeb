@@ -28,3 +28,9 @@
 #form-input form button {
     width: 100%;
 }
+
+.responsive-video {
+    background-color: black;
+    width: 50%;
+    height: 400px;
+}

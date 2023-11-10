@@ -1,12 +1,16 @@
+import React from 'react';
 import './room.css'
 import  { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import './room.css'
 
+let myStream = null
+
 
 function Room({ socket }) {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const [localPLayer, setLocalPlayer] = useState('')
     const location = useLocation();
     const handleSendMessage = (e) => {
       e.preventDefault();
@@ -17,6 +21,16 @@ function Room({ socket }) {
       setMessage('');
       
     };
+    
+    useEffect(() => {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(function (stream) {
+            myStream = stream
+            setLocalPlayer(myStream)
+        }).catch(function (err) {
+            console.log(err)
+        })
+    }, [])
 
 
     useEffect(() => {
@@ -28,6 +42,7 @@ function Room({ socket }) {
       <div id="room">
         <div id='videos'>
             <h1>Videos</h1>
+           { localPLayer && <video id="local-player" ref={ video => {video.srcObject = localPLayer}}  className="responsive-video" autoPlay muted></video>}
         </div>
          <div id="form-input">
              <div className="message__container">

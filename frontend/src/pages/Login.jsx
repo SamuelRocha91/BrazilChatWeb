@@ -24,6 +24,7 @@ function Login() {
         <div className="divInput">
           <div id='div-login'>
             <label>
+              Email: 
               <input
                 name="email"
                 type="text"
@@ -33,6 +34,7 @@ function Login() {
               />
             </label>
             <label>
+              Senha: 
               <input
                 type="password"
                 name="password"

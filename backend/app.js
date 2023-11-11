@@ -26,7 +26,7 @@ socketIO.on('connection', (socket) => {
         const {text, room} = data
         socketIO.to(room).emit('messageResponse', text);
       });
-    
+
     socket.on('disconnect', () => {
       console.log('🔥: A user disconnected');
     });

@@ -1,0 +1,13 @@
+#dash {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(224, 247, 247);
+    height: 100vh;
+    padding: 50px;
+}
+
+#dash button {
+    width: 185px;
+}

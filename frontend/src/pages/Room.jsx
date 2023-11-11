@@ -1,8 +1,9 @@
-import React from 'react';
 import './room.css'
 import  { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 import './room.css'
+import propTypes from 'prop-types';
+
 
 let myStream = null
 
@@ -71,5 +72,11 @@ function Room({ socket }) {
       </div>)
   }
   
+Room.propTypes = {
+    socket: propTypes.shape({
+      emit: propTypes.func.isRequired,
+      on:  propTypes.func.isRequired,
+    }).isRequired
+  }
 
 export default Room

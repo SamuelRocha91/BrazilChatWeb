@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import propTypes from 'prop-types';
+import './dashboard.css'
 
 function Dashboard({ socket }) {
   const [room, setRoom] = useState();
@@ -11,13 +13,18 @@ function Dashboard({ socket }) {
   }
  
     return (
-      <>
-        <h1>Selecione sua sala</h1>
+      <div id='dash'>
+        <h1>Digite sua sala</h1>
         <input type="text" value={ room } onChange={() => setRoom(event.target.value)}/>
         <button onClick={ () => handleClick() }
 >IR</button>
-      </>
+      </div>
     )
   }
   
+Dashboard.propTypes = {
+  socket: propTypes.shape({
+    emit: propTypes.func.isRequired,
+  }).isRequired
+}
 export default Dashboard;

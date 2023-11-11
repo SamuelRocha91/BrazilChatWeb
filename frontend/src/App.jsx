@@ -5,8 +5,11 @@ import Dashboard from "./pages/Dashboard"
 import Room from "./pages/Room"
 import socketIO from 'socket.io-client';
 
+// cria uma instância de socket.io para ser passada entre os componentes para permitir eventos de comunicação com o backend
 const socket = socketIO.connect('http://localhost:3000');
 
+// cria uma função app que abrange as rotas da aplicação: / para a página inicial, /login para o usuário logar no site,
+// /dashboard para escolha de uma sala e /dashboard:room para a sala específica
 function App() {
   return (
     <>

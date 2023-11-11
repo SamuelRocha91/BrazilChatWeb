@@ -1,3 +1,5 @@
+// cria um iceserver para chamada WebRtc
+
 const servers = {
     iceServers: [
         {
@@ -6,14 +8,10 @@ const servers = {
     ]
 }
 
-
+// Visa criar um ponto de conexão
 const createPeer = async(user) => {
     const peerConection = new RTCPeerConnection(servers); // instancia uma conexão de pares;
     const remoteStream = new MediaStream() // cria uma nova stream remota;
-
-    localStream.getTracks().forEach(element => {
-        peerConection.add(element, localStream)
-    });
 
     peerConection.ontrack = (event) => {
         event.streams[0].getTracks().forEach((track) => {
@@ -42,42 +40,3 @@ const createPeer = async(user) => {
 
 }
 
-
-function createOffer(user, socket) {
-    user.dc = user.pc.createDataChannel('chat')
-    setupDataChannel(user.dc)
-    
-    user.pc.createOffer().then(function (offer) {
-        user.pc.setLocalDescription(offer).then(function () {
-            socket.emit('offer', {
-                id: user.id,
-                offer: offer
-            })
-        })
-    })
-}
-
-function answerPeer (user, offer, socket) {
-    user.pc.setRemoteDescription(offer).then(function () {
-        user.pc.createAnswer().then(function(answer) {
-            user.pc.setLocalDescription(answer).then(function() {
-                socket.emit('answer', {
-                    id: user.id,
-                    answer: answer
-                })
-            })
-        })
-    })
-}
-
-function setupDataChannel(dataChannel) {
-    dataChannel.onopen = checkDataChannelState
-    dataChannel.onclose = checkDataChannelState
-    dataChannel.onmessage = function(e) {
-        addMessage(e.data)
-    }
-}
-
-function checkDataChannelState(dataChannel) {
-    console.log('WebRTC channel state is:', dataChannel.type)
-}

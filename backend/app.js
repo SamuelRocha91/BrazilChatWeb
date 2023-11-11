@@ -15,13 +15,15 @@ const socketIO = require('socket.io')(http, {
       },
 });
 
-//Add this before the app.get() block
+// ativa a lógica de eventos do socjet.io para responder o front end e intermediar os dados
 socketIO.on('connection', (socket) => {
+
+    //cria acesso de usuários a sala específica de chat
     socket.on('joinRoom', ({  room }) => {
         socket.join(room);
     
     });
-
+    // recebe a mensagem de um usuário e passa ao outro
     socket.on('message', (data) => {
         const {text, room} = data
         socketIO.to(room).emit('messageResponse', text);
@@ -37,8 +39,6 @@ app.get('/', (req, res) => {
     message: 'Hello world',
   });
 });
-
-
 
 http.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

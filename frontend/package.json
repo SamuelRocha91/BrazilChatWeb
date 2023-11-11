@@ -20,7 +20,10 @@
     "react-scripts": "5.0.1",
     "socket.io": "^4.7.2",
     "socket.io-client": "^4.7.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "peer": "^1.0.1",
+    "simple-peer": "^9.11.1"
+
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

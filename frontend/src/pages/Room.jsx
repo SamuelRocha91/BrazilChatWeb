@@ -1,11 +1,8 @@
 import './room.css'
-import  { useState, useEffect } from 'react';
+import  { useState, useEffect, useContext} from 'react';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-import './room.css'
 import propTypes from 'prop-types';
-
-
-let myStream = null
+import { SocketContext } from "../SocketContext";
 
 
 function Room({ socket }) {
@@ -14,9 +11,9 @@ function Room({ socket }) {
     const [messages, setMessages] = useState([]);
 
     // cria estado para armazenar dados da máquina do usuário a fazer chamada de video
-    const [localPLayer, setLocalPlayer] = useState('')
     const location = useLocation();
-
+    const { callAccepted, myVideo, userVideo, callEnded, stream } =
+		useContext(SocketContext);
     // torna possível a comunicação via chat através da emissão de eventos com socket.io
     const handleSendMessage = (e) => {
       e.preventDefault();
@@ -25,31 +22,36 @@ function Room({ socket }) {
         room: location.pathname.slice(11)
       });
       setMessage('');
-      
     };
     
-    // inicializa a solicitação de acesso a câmera do usuário após o carregamento da página.
-    useEffect(() => {
-        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-        .then(function (stream) {
-            myStream = stream
-            setLocalPlayer(myStream)
-        }).catch(function (err) {
-            console.log(err)
-        })
-    }, [])
 
-    // cria evento para sempre que os usuários enviarem mensagens
-    useEffect(() => {
-      socket.on('messageResponse', (data) => setMessages([...messages, data]));
-      console.log(messages)
-    }, [socket, messages]);
+  // cria evento para sempre que os usuários enviarem mensagens
+  useEffect(() => {
+    socket.on('messageResponse', (data) => setMessages([...messages, data]));
+  }, [socket, messages]);
+
 
     return (
       <div id="room">
         <div id='videos'>
             <h1>Videos</h1>
-           { localPLayer && <video id="local-player" ref={ video => {video.srcObject = localPLayer}}  className="responsive-video" autoPlay muted></video>}
+            {stream && (
+						<video
+							playsInline
+							muted
+							ref={myVideo}
+              className='responsive-video'
+							autoPlay
+						/>
+			)}
+			{callAccepted && !callEnded && (
+						<video
+							playsInline
+							ref={userVideo}
+              className='responsive-video'
+							autoPlay
+						/>
+			)}
         </div>
         <div id="form-input">
           <div className="message__container">

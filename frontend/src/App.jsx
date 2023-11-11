@@ -4,6 +4,8 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Room from "./pages/Room"
 import socketIO from 'socket.io-client';
+import { ContextProvider } from "./SocketContext.jsx";
+
 
 // cria uma instância de socket.io para ser passada entre os componentes para permitir eventos de comunicação com o backend
 const socket = socketIO.connect('http://localhost:3000');
@@ -19,9 +21,11 @@ function App() {
         <Route exact path="/dashboard">
           <Dashboard socket={socket}/>
         </Route>
+        <ContextProvider>
         <Route path="/dashboard/:room">
           <Room socket={socket}/>
         </Route>
+        </ContextProvider>
       </Switch>
     </>
   )

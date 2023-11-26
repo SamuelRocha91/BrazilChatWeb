@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import BrazilianSpeak from '../images/BrazilianSpeak.png'
 import './login.css'
 
 function Login() {
@@ -23,6 +24,7 @@ function Login() {
       <>
         <div className="divInput">
           <div id='div-login'>
+            <img src={BrazilianSpeak} alt="" />
             <label>
               Email: 
               <input
@@ -52,6 +54,7 @@ function Login() {
             >
               Login
             </button>
+            <a href="">Esqueceu a senha?</a>
           </div>
         </div>
       </>

@@ -32,11 +32,16 @@ socketIO.on('connection', (socket) => {
       socket.emit("me", socket.id);
   
       socket.on("callUser", ({ userToCall, signalData, from, name }) => {
-          io.to(userToCall).emit("callUser", { signal: signalData, from, name });
+        socketIO.to(userToCall).emit("callUser", { signal: signalData, from, name });
+
       });
+
+      socket.on("callAccepted", (data) => {
+        socket.to(data.to).emit("callAccepted", data.signal);
+      });      
   
       socket.on("answerCall", (data) => {
-          io.to(data.to).emit("callAccepted", data.signal);
+        socketIO.to(data.to).emit("callAccepted", data.signal);
       });
     socket.on('disconnect', () => {
       console.log('🔥: A user disconnected');

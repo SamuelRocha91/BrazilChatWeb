@@ -12,7 +12,7 @@ function Home() {
           <header className='home-header'>
             <Header className='element-header'/>
           </header>
-          <main className='learn'>
+          <main className='learn' >
             <LearnPortuguese />
           </main>
         </div>

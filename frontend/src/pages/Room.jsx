@@ -47,7 +47,7 @@ function Room({ socket }) {
 							autoPlay
 						/>
 			)}
-			{callAccepted && userVideo && callEnded && (
+			{callAccepted && userVideo && !callEnded && (
 						<video
 							playsInline
 							ref={userVideo}

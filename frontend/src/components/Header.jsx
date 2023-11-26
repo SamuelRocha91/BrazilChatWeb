@@ -11,8 +11,8 @@ export default function Header() {
         <>
           <div id="titles">
              <div><img src={rectangle} alt="losângulo" /></div>
-             <h3>Encontre professores</h3>
-             <h3>Seja Professor</h3>
+             <h3><a href="#student">Encontre professores</a></h3>
+             <h3><a href="#teacher">Seja Professor</a></h3>
              <h3> Escolha seu plano</h3>
          </div>
          <div id='page-links'>

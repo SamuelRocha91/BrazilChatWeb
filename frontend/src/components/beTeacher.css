@@ -1,0 +1,40 @@
+.teacher-signup {
+    display: flex;
+    height: 100%;
+    width: 60%;
+}
+
+.teacher-signup img {
+    height: 80%;
+    width: 80%;
+    padding: 50px;
+}
+
+.teacher-signup div {
+    color: white;
+    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.teacher-signup div button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 23%;
+    height: 5%;
+    gap: 5px;
+ }
+
+ .teacher-signup div button img {
+   width: fit-content;
+   height: fit-content;
+   margin: 0;
+   padding: 0;
+ }

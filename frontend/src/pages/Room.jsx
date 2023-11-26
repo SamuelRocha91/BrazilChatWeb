@@ -24,18 +24,21 @@ function Room({ socket }) {
       setMessage('');
     };
     
-
+ 
   // cria evento para sempre que os usuários enviarem mensagens
   useEffect(() => {
     socket.on('messageResponse', (data) => setMessages([...messages, data]));
-  }, [socket, messages]);
+    console.log(myVideo)
+    console.log(userVideo)
+
+  }, [socket, messages, myVideo, userVideo, stream]);
 
 
     return (
       <div id="room">
         <div id='videos'>
             <h1>Videos</h1>
-            {stream && (
+            {myVideo && (
 						<video
 							playsInline
 							muted
@@ -44,7 +47,7 @@ function Room({ socket }) {
 							autoPlay
 						/>
 			)}
-			{callAccepted && !callEnded && (
+			{callAccepted && userVideo && callEnded && (
 						<video
 							playsInline
 							ref={userVideo}

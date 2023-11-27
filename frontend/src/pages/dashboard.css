@@ -1,0 +1,23 @@
+#dash {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+#dash .home-header {
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blue;
+}
+
+#dash .home-header select {
+    background-color: blue;
+}
+
+#dash .home-header #navigate button {
+    background-color: blue;
+}

@@ -1,0 +1,42 @@
+#text-button {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 40%;
+    align-items: flex-start;
+    line-height: 70px;
+    align-content: flex-start;
+    justify-content: center;
+    padding: 150px;
+    gap: 20px;
+}
+
+#text-button h1 {
+    font-size: 60px;
+    color: white;
+}
+
+#text-button button {
+   padding: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   font-size: larger;
+   font-family: 'Times New Roman', Times, serif;
+}
+
+#mountain-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+
+#mountain {
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+}

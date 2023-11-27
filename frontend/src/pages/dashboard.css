@@ -21,3 +21,14 @@
 #dash .home-header #navigate button {
     background-color: blue;
 }
+
+.section-author {
+    background-color: white;
+}
+
+.main section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 50px;
+}

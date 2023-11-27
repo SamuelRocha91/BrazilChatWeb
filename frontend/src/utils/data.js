@@ -12,7 +12,7 @@ export const data = [
         summary: 'Cão Fessor letrado em aurtuguês cachorresco com uma pitada de auau',
         isOnline: true,
         image: yoshi,
-        details: 'Nativo brasileiro descendente de Japonêses. Bacharel e licenciado nesse idioma fantástico chamado aurtuguês pela AUFBA. Minha metodologia de ensino é prática e leva em conta necessidades básicas de um auturista de passagem pelo Brasil'
+        details: 'Nativo brasileiro e descendente de Japoneses. Bacharel e licenciado nesse idioma fantástico chamado aurtuguês pela AUFBA. Minha metodologia de ensino é prática e leva em conta necessidades básicas de um auturista de passagem pelo Brasil.'
     },
     {
         name: 'Maria',

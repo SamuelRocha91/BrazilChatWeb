@@ -3,6 +3,7 @@ import seta from '../images/seta.png';
 import interrogacao from '../images/interrogacao.png'
 import { useHistory } from 'react-router-dom';
 import './header.css'
+import '../pages/details.css'
 
 
 export default function NavLinks() {

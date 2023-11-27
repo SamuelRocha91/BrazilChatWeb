@@ -1,5 +1,6 @@
 import './contentDash.css'
 import { data } from '../utils/data'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function ContentDash() {
     return(
@@ -9,8 +10,9 @@ export default function ContentDash() {
                 <input type="text" />
             </div>
             <div className='mural'>
-                {data.map(({name, isOnline, summary, image}) => (
-                       <div key={name} className='card'>
+                {data.map(({name, isOnline, summary, image}, id) => (
+        
+                       <Link  key={name} to={`/dashboard/details/${id}`}  className='card'>
                        <img src={image} alt="cão fessor" />
                            <div className='content'>
                                <h3>{name}</h3>
@@ -20,7 +22,7 @@ export default function ContentDash() {
                                    <p>{isOnline ? 'Online' : 'Offline'}</p>
                                </div>
                            </div>
-                       </div>
+                       </Link>
                 )
                  )}
              

@@ -4,6 +4,7 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Room from "./pages/Room"
 import socketIO from 'socket.io-client';
+import Details from "./pages/Details.jsx"
 import { ContextProvider } from "./SocketContext.jsx";
 
 
@@ -22,8 +23,11 @@ function App() {
           <Dashboard socket={socket}/>
         </Route>
         <ContextProvider>
-        <Route path="/dashboard/:room">
+        <Route exact path="/dashboard/:room">
           <Room socket={socket}/>
+        </Route>
+        <Route exact path="/dashboard/details/:id">
+          <Details />
         </Route>
         </ContextProvider>
       </Switch>

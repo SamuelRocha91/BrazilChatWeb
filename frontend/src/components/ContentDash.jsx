@@ -1,5 +1,5 @@
-import yoshi from '../images/yoshi.jpeg'
 import './contentDash.css'
+import { data } from '../utils/data'
 
 export default function ContentDash() {
     return(
@@ -9,14 +9,21 @@ export default function ContentDash() {
                 <input type="text" />
             </div>
             <div className='mural'>
-                <div className='card'>
-                <   img src={yoshi} alt="cão fessor" />
-                    <div className='content'>
-                        <h3>Professor</h3>
-                        <p> Cão Fessor letrado em aurtuguês cachorresco com uma pitada de auau</p>
-                        <p>Online</p>
-                    </div>
-                </div>
+                {data.map(({name, isOnline, summary, image}) => (
+                       <div key={name} className='card'>
+                       <img src={image} alt="cão fessor" />
+                           <div className='content'>
+                               <h3>{name}</h3>
+                               <p>{summary}</p>
+                               <div>
+                                   <div className={isOnline ? 'onCircle' : 'ofCircle'}></div>
+                                   <p>{isOnline ? 'Online' : 'Offline'}</p>
+                               </div>
+                           </div>
+                       </div>
+                )
+                 )}
+             
             </div>
         </div>
     )

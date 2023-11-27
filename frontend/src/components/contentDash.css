@@ -5,7 +5,6 @@
 }
 .filter {
     width: 80%;
-    border: 1px solid gold;
     display: flex;
     flex-direction: column;
     font-size: 30px;
@@ -14,24 +13,39 @@
     gap: 10px;
 }
 
+#dash {
+    background-color: #F0EDEE;
+    color: blue;
+}
+
 .filter input {
     padding: 10px;
 }
 
 .mural {
-    border: 1px solid black;
     height: 100%;
     padding: 10px;
+    background-color: #F0EDEE;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card {
-    border: 1px solid green;
     height: 40%;
     width: 30%;
     display: flex;
     gap: 10px;
+    color: blue;
+    box-shadow: 10px 5px 5px black;
 }
-
+.card img{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    color: blue;
+}
 .card div h3 {
     font-size: 26px;
 }
@@ -44,6 +58,28 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
-    box-shadow: 10px 5px 5px black;
     gap: 20px;
+}
+
+.onCircle {
+    background-color: green;
+    border-radius: 50px;
+    width: 1px;
+    height: 1px;
+    padding: 8px;
+}
+
+.ofCircle {
+    background-color: red;
+    border-radius: 50px;
+    width: 1px;
+    height: 1px;
+    padding: 8px;
+}
+
+.content div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
 }

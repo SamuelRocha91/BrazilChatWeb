@@ -1,0 +1,49 @@
+.total {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.filter {
+    width: 80%;
+    border: 1px solid gold;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    color: blue;
+    padding: 50px;
+    gap: 10px;
+}
+
+.filter input {
+    padding: 10px;
+}
+
+.mural {
+    border: 1px solid black;
+    height: 100%;
+    padding: 10px;
+}
+
+.card {
+    border: 1px solid green;
+    height: 40%;
+    width: 30%;
+    display: flex;
+    gap: 10px;
+}
+
+.card div h3 {
+    font-size: 26px;
+}
+
+.card div p {
+    font-size: 18px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 10px 5px 5px black;
+    gap: 20px;
+}
